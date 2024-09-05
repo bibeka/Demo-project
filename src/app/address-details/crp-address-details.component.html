@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row justify-content-center mt-1">
+    <div class="col-lg-12">
+      <div class="card shadow">
+        <div class="card-title text-center border-bottom">
+          <h2 class="p-3"> Address Details </h2>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="addressDetailsForm ">
+            <div class="row"> 
+            <div class="col-md-6">
+              <div class="mb-4">
+                <label for="username" class="form-label">Address Line 1</label>
+                <textarea placeholder="Address Line 1" class="form-control" formControlName="add1"></textarea>
+              </div>
+            </div>
+            <div class="col-md-6"> 
+            <div class="mb-4">
+              <label for="text" class="form-label">Address Line 2</label>
+              <textarea type="text" class="form-control" id="password" formControlName="add2"></textarea>
+            </div></div>
+            <div class="col-md-6">
+            <div class="mb-4">
+              <label for="text" class="form-label">Disctrict</label>
+              <input type="text" class="form-control" id="password" formControlName="disctrict" />
+            </div></div>
+            <div class="col-md-6"> 
+            <div class="mb-4">
+              <label for="text" class="form-label">City</label>
+              <input type="text" class="form-control" id="password" formControlName="city" />
+            </div></div>
+            <div class="col-md-6">
+            <div class="mb-4">
+              <label for="text" class="form-label">State</label>
+              <input type="text" class="form-control" id="password" formControlName="state" />
+            </div></div>
+            <div class="col-md-6">
+            <div class="mb-4">
+              <label for="text" class="form-label">Pincode</label>
+              <input type="text" class="form-control" id="password" formControlName="pincode" />
+              <div *ngIf="pincode?.invalid && (pincode?.dirty || pincode?.touched)">
+                <small *ngIf="pincode?.errors?.required" class="text-danger">Pincode is required.</small>
+                <small *ngIf="pincode?.errors?.pattern" class="text-danger">Pincode must be a valid 6-digit
+                  number.</small>
+              </div>
+            </div></div></div>
+            <div class="d-grid">
+              <input type="button" (click)="addressDetails()" [disabled]="addressDetailsForm.invalid" class="btn text-light main-bg2 btn-md bg-info"
+                value="Save & Continue" />
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

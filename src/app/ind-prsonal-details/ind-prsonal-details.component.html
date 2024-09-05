@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row justify-content-center mt-1">
+      <div class="col-lg-12">
+        <div class="card shadow">
+          <div class="card-title text-center border-bottom">
+            <h2 class="p-3"> Personal Details</h2>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="personalDetailsForm ">
+              
+              <div class="mb-4">
+                <label for="password" class="form-label">PAN Number</label>
+                <input type="password" class="form-control" id="password" formControlName="Pan"   />
+              </div>
+              <div class="mb-4">
+                <label for="password" class="form-label">Vehicle Number </label>
+                <input type="password" class="form-control" id="password" formControlName="VNo"   />
+              </div>
+              <div class="d-grid">
+                <input type="button" (click)="personalDetails()"  [disabled]="personalDetailsForm.invalid" class="btn text-light main-bg2 btn-md bg-info"
+                value="Save & Continue"/>
+              </div>
+            
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

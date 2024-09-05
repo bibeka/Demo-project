@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="row justify-content-center mt-1">
+      <div class="col-lg-12">
+        <div class="card shadow">
+          <div class="card-title text-center border-bottom">
+            <h2 class="p-3"> Company Details</h2>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="companyDetails ">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    <label for="text" class="form-label">Company Number</label>
+                    <input type="text" class="form-control" formControlName="CompName"   />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    <label for="text" class="form-label">Company TIN</label>
+                    <input type="text" class="form-control" formControlName="CompTin"  maxlength=14 />
+                    <div *ngIf="CompTin?.invalid && (CompTin?.dirty || CompTin?.touched)">
+                      <small *ngIf="CompTin?.errors?.required" class="text-danger">Comapny TIN is required.</small>
+                      <small *ngIf="CompTin?.errors?.pattern" class="text-danger">TIN must be a valid 14-digit
+                        Alphanumeric.</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    <label for="text" class="form-label">Company Type It should be dropdown textbox</label>
+                    <!-- <input type="text" class="form-control" formControlName="CompType"   /> -->
+                     <!-- test -->
+<select class="form-control form-select" aria-label="Default select example" formControlName="CompType" >
+  <option  value=""> Select company type</option>
+  <option  *ngFor="let compType of companyType">{{compType}}</option>
+</select>
+ <!-- Test end -->
+                  </div>
+                  
+
+
+
+                </div>
+              </div>
+              
+              
+              
+              <div class="d-grid">
+                <input type="button" (click)="onSavecompanyDetails()" [disabled]="companyDetails.invalid" 
+                class="btn text-light main-bg2 btn-md bg-info" value="Save & Continue" />
+              </div>
+            
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

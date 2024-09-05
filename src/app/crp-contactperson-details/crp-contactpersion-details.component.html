@@ -1,0 +1,59 @@
+
+<div class="container-fluid">
+    <div class="row justify-content-center mt-1">
+      <div class="col-lg-12">
+        <div class="card shadow">
+          <div class="card-title text-center border-bottom">
+            <h2 class="p-3"> Contact Person Details</h2>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="contactPersonDetailsForm ">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    <label for="text" class="form-label">Contact Person Name</label>
+                    <input type="text" class="form-control" id="password" formControlName="CPName"   />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    <label for="text" class="form-label">Contact Person Mobile Number</label>
+                    <input type="text" class="form-control" id="password" formControlName="CPMob"   />
+                    <div *ngIf="CPMob?.invalid && (CPMob?.dirty || CPMob?.touched)">
+                      <small *ngIf="CPMob?.errors?.required" class="text-danger">Mobile number is required.</small>
+                      <small *ngIf="CPMob?.errors?.pattern" class="text-danger">Mobile number must be a valid 10-digit number.</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  
+              <div class="mb-4">
+                <label for="text" class="form-label">Contact Person Email  </label>
+                <input type="text" class="form-control" id="password" formControlName="CPEmail"   />
+                <div *ngIf="CPEmail?.invalid && (CPEmail?.dirty || CPEmail?.touched)">
+                  <small *ngIf="CPEmail?.errors?.required" class="text-danger">Email is required.</small>
+                  <small *ngIf="CPEmail?.errors?.email" class="text-danger">Please enter a valid email address.</small>
+                </div>
+              </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    <label for="text" class="form-label">Designation</label>
+                    <input type="text" class="form-control" id="password" formControlName="CPDesignation"   />
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+              <div class="d-grid">
+                <input type="button" (click)="cpDetails()"class="btn text-light main-bg2 btn-md bg-info"
+                value="Save & Continue" [disabled]="contactPersonDetailsForm.invalid"/>
+              </div>
+            
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

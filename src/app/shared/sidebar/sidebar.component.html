@@ -1,0 +1,12 @@
+<nav class="nav flex-column">
+    <!-- <a class="nav-link active" href="#" *ngFor="let ">Active</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link disabled" href="#">Disabled</a> -->
+<ul>
+    <li *ngFor="let menu of menuItems"> 
+        <a class="nav-link" (click)=sidebarLinks(menu.module_name)>{{menu.module_name}}</a> 
+    </li>
+</ul>
+
+  </nav>
